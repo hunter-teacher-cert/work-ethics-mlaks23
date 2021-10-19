@@ -32,6 +32,13 @@ def is_prime():
     
 is_prime()
 
+odd_even_prime = {
+    "odd" : "1, 3, 5",
+    "even" : "2, 4, 6",
+    "prime" : "2, 3, 5"
+    }
+print(odd_even_prime)
+
 
 
         
