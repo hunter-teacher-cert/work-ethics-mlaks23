@@ -1,3 +1,6 @@
+#Some of the comments show print statments based on code that Alex wrote.
+#Michelle B and I worked with Daiana and Peter to implement the improvements to the code.
+
 import random
 
 
@@ -147,7 +150,10 @@ def purchase_economy_block(plane,economy_sold,number,name):
     available, store the name and number of seats purchased in the
     economy_sold dictionary and return the new dictionary
     """
-    seats_avail = get_total_seats(plane)
+    #seats_avail = get_total_seats(plane)
+    #Change so we don't oversell the seats
+
+    seats_avail = get_avail_seats(plane, economy_sold)
     seats_avail = seats_avail - get_number_economy_sold(economy_sold)
 
     if seats_avail >= number:
@@ -176,9 +182,13 @@ def fill_plane(plane):
     # you will probably want to change parts of this
     # for example, when to stop purchases, the probabilities, maybe the size for the random
     # regular economy size
-
+    
     max_family_size = 3
-    while total_seats > 1:
+    #max_family_size = int(input("How many people are you travelling with? ")) 
+    #if max_family_size <= 3:
+    #At some point I would like to change this max size of the family by having user input data.
+    
+    while total_seats > 0:  #no available seats at end
         #print("TOTAL SEATS: " + str(total_seats))
         #print(" ")
         r = random.randrange(100)
@@ -202,6 +212,53 @@ def fill_plane(plane):
     for name in economy_sold.keys():
         for i in range(economy_sold[name]):
             plane = seat_economy(plane,economy_sold,name)
+    print(economy_sold)
+    print()
+
+    assigned_economy_plus = []  #save the plane filled with economy plus
+    for row in plane:
+      for seat in row[1:-1]: 
+        if seat[0] == "e":
+          assigned_economy_plus.append(seat)
+    print("Passengers who purchased Economy Plus, but were not given a window seat: ")
+    print(assigned_economy_plus)
+    print()
+
+    purchased_economy = []
+    for key, val in economy_sold.items() :
+      purchased_economy.append( (val, key) )
+      #purchased_economy.sort(reverse=True)     #This can be used to sort the list
+    
+    print("Family Groups: ")  
+    print(purchased_economy)
+    print()
+
+    current_row = 0
+    for key, val in purchased_economy:
+      if key == 3:
+        plane[current_row][1] = val
+        plane[current_row][2] = val
+        plane[current_row][3] = val
+        current_row = current_row + 1
+      if key == 2:
+        plane[current_row][1] = val
+        plane[current_row][2] = val
+        plane[current_row][3] = "avail"
+        current_row = current_row + 1
+      if key == 1:
+        assigned_economy_plus.append(val)
+        
+    #print(assigned_economy_plus)  
+    #check to see that single passengers were added to the list of unassigned Economy Plus
+    
+    for row in range(len(plane)):
+      if row >= current_row:
+        plane[row][1] = "avail"
+        plane[row][2] = "avail"
+        plane[row][3] = "avail"
+    
+    for person in assigned_economy_plus:
+      seat_economy(plane, economy_sold, person)
 
 
     return plane
