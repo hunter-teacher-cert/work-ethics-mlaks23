@@ -21,4 +21,4 @@ The first part of the presentation contains information about the history of Ger
    - Project Code: https://drive.google.com/file/d/1TyACH0yCTRKxlvEyUMCRYh8m8oYlDput/view?usp=sharing
    - Project Example: https://drive.google.com/file/d/16klXfQfegSBySECqdiLS6mWGw8Aepvvf/view?usp=sharing
 
-   * Note: To access the code on Pyret, go to https://code.pyret.org/. Sign in and connect google drive. Then click on the pyret links. *
+*Note: To access the code on Pyret, go to https://code.pyret.org/. Sign in and connect google drive. Then click on the pyret links.*
