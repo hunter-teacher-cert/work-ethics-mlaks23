@@ -1,8 +1,11 @@
 # Gerrymandering Project
 ## Marisa Laks and Alex Moore
 
+# Description of Presentation
+The first part of the presentation contains information about the history of Gerrymandering. Computer programs are used to help people gerrymander and also to detect when gerrymandering has taken place. The second part of the presentation contains a lesson plan with all supporting documents for teachers to implement this lesson in their class. In the lesson, students will perform methods on tables and write functions to analyze data from a dataset of Republican and Democratic votes for US Representatives from 2018 in order to investigate Gerrymandering. The dataset comes from bootstrapworld.org and is based on US Census Bureau data.
+
 # Folder Contents:
-1. Presentation PDF
+1. Presentation PDF: gerrymandering_hunter_college.pdf
 2. Project Proposal: proposal.md
 3. Lesson Plan with Presentation and Code
    - Lesson Plan: gerrymandering_lesson_plan.PDF
